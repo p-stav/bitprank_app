@@ -1,0 +1,102 @@
+<!-- pauls
+view to order a new 'prank'
+plug-in with bitpay
+-->
+
+<!-- pauls
+# splash page for application
+# initial mockup borrowed from here:
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>BitPrank</title>
+    <!-- include jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Plugin CSS -->
+    <script src="https://use.fontawesome.com/6a7839425f.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">BitPrank</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                      <%= link_to "Order a Prank",  controller: "pranks", action: "new", id: @prank %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+      <div class="jumbotron" style="background: linear-gradient(to left,#7b4397,#ad141e);">
+        <div class="container spacer">
+          <h1>Order a prank!</h1>
+          <p>Fill out the form below and submit your BTC via the bitpay plugin
+          <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>-->
+          </div>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <div class="container">
+          <%= form_for :prank, url: pranks_path do |f| %>
+            <p>
+              <%= f.label :street_address_1 %><br>
+              <%= f.text_field :street_address_1 %>
+            </p>
+
+            <p>
+              <%= f.label :message %><br>
+              <%= f.text_area :message %>
+            </p>
+
+            <p>
+              <%= f.submit %>
+            </p>
+          <% end %>
+
+        </div>
+    </section>
+
+    <section id="contact" class="contact bg-primary">
+        <div class="container">
+            <h2>We <i class="fa fa-heart"></i> new friends!</h2>
+            <ul class="list-inline list-social">
+                <li class="social-twitter">
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li class="social-google-plus">
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+</body>

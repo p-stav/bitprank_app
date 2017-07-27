@@ -1,0 +1,2 @@
+class Prank < ApplicationRecord
+end
